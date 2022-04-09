@@ -26,3 +26,8 @@ Content-Type: application/json
 {
     "message": "Hi"
 }
+
+###
+ 
+GET http://localhost:3000/api/chat/get HTTP/1.1
+Content-Type: application/json

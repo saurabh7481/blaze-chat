@@ -1,4 +1,4 @@
-import { User } from "../models";
+import { Chat, User } from "../models";
 import {Request, Response} from "express";
 import UserInt from "../interfaces/user.interface";
 
@@ -24,6 +24,19 @@ export const addChat =async (req: RequestExtended, res: Response) => {
         })
         if(chat){
             return res.status(200).json({success: true});
+        } else {
+            return res.status(401).json({success: false, message: "Something went wrong"});
+        }
+    } catch(err){
+        return res.status(500).json({success: false, message: "Cannot send the message"});
+    }
+}
+
+export const getChats = async (_req: RequestExtended, res: Response) => {
+    try{
+        const chats = await Chat.findAll();
+        if(chats){
+            return res.status(200).json({success: true, chats: chats});
         } else {
             return res.status(401).json({success: false, message: "Something went wrong"});
         }
