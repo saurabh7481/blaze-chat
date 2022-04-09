@@ -1,5 +1,6 @@
 import * as sequelize from "sequelize";
 import {UserFactory} from "./user.model";
+import { ChatFactory } from "./chat.model";
 import config from "../config/db.config";
 
 export const dbConfig = new sequelize.Sequelize(
@@ -13,3 +14,7 @@ export const dbConfig = new sequelize.Sequelize(
 );
 
 export const User = UserFactory(dbConfig);
+export const Chat = ChatFactory(dbConfig);
+
+User.hasMany(Chat);
+Chat.belongsTo(User);
