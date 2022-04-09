@@ -90,7 +90,7 @@ section .container .user .formBx form input {
   font-weight: 300;
 }
 
-section .container .user .formBx form input[type='submit'] {
+section .container .user .formBx form input[type='button'] {
   max-width: 100px;
   background: #677eff;
   color: #fff;
@@ -115,6 +115,10 @@ section .container .user .formBx form .signup a {
   font-weight: 600;
   text-decoration: none;
   color: #677eff;
+}
+
+section a:hover{
+    cursor: pointer;
 }
 
 section .container .signupBx {
