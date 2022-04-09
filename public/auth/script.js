@@ -22,16 +22,16 @@ async function login(){
     try{
         const res = await axios.post("http://localhost:3000/api/auth/login", data);
         if(res.status === 200){
-            localStorage.setItem("auth", res.data);
-        } else if(res.status === 401){
-            alert("Invalid credentials");
-        } else if(res.status === 404){
-            alert("User not found");
-        } else {
-            console.log(res);
+            alert("Logged in!");
         }
     } catch(err){
-        console.log(err);
+        if(err.response.status === 401){
+            alert("Invalid credentials");
+        } else if(err.response.status === 404) {
+            alert("User not found");
+        } else {
+            alert("Server error");
+        }
     }
 }
 
@@ -39,23 +39,23 @@ async function register(){
     const form = document.getElementById("s-form");
      const formData = new FormData(form);
      const data = {
-         username: formData.get("username"),
+         name: formData.get("username"),
          email: formData.get("email"),
-         phnumber: formData.get("phone"),
+         phnumber: formData.get("phnumber"),
          password: formData.get("password")
      }
-
      try {
-         const res = await axios.post("http://13.233.197.99:3000/api/signup", data);
+         const res = await axios.post("http://localhost:3000/api/auth/signup", data);
+         console.log(res);
          if(res.status === 200){
-             alert("You are registered. Head on to login page.");
-         } else if(res.status === 400) {
-             alert("User already exists, please sign in");
-         } else {
-             console.log(res);
+             alert("You are registered");
          }
      } catch(err) {
-         alert("Something went wrong!");
+         if(err.response.status === 400){
+            alert("User already exists, please sign in");
+         } else {
+             alert("Server Error");
+         }
      }
 }
 
