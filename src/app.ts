@@ -24,7 +24,7 @@ app.use("/api/chat", chatRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-dbConfig.sync().then( () => {
+dbConfig.sync({force: true}).then( () => {
 	app.listen( PORT, () => {
     console.log( `Server is running at ${PORT}` );
   } );

@@ -1,6 +1,7 @@
 import { Chat, User } from "../models";
 import {Request, Response} from "express";
 import UserInt from "../interfaces/user.interface";
+import {Op} from "sequelize";
 
 interface User {
     createChat: Function,
@@ -32,9 +33,21 @@ export const addChat =async (req: RequestExtended, res: Response) => {
     }
 }
 
-export const getChats = async (_req: RequestExtended, res: Response) => {
+export const getChats = async (req: RequestExtended, res: Response) => {
+    const lastChatId = Number(req.query.lastchatid);
     try{
-        const chats = await Chat.findAll();
+        let chats;
+        if(lastChatId === 0){
+            chats = await Chat.findAll();
+        } else {
+            chats = await Chat.findAll({
+                where: {
+                    id: {
+                        [Op.gt]: lastChatId
+                    }
+                }
+            })
+        }
         if(chats){
             return res.status(200).json({success: true, chats: chats});
         } else {
