@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Blaze - Chat App</title>
+  </head>
+  <body>
+    <header class="header container container-pall">
+      <nav class="nav flex flex-jc-sp flex-ai-c">
+        <a class="header__logo" href="#">Blaze</a>
+
+        <div
+          class="toggle-menu flex hide-for-desktop"
+          tabindex="0"
+          role="button"
+        >
+          <div class="toggle-menu__dots">
+            <span class="toggle-menu__dot"></span>
+            <span class="toggle-menu__dot"></span>
+            <span class="toggle-menu__dot"></span>
+            <span class="toggle-menu__dot"></span>
+          </div>
+
+          <span class="toggle-menu__text">Menu</span>
+        </div>
+
+        <ul class="menu flex">
+          <li class="menu__item">
+            <a href="#" class="menu__link">Log In</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link menu__link--primary">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero container container-pall">
+      <div class="hero__image">
+        <img
+          src="https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+          alt="Hero Image"
+          class="hero__illustration-image"
+          draggable="false"
+        />
+      </div>
+
+      <div class="hero__text">
+        <h1 class="hero__heading">Simple, powerful and efficient chatting experience</h1>
+        <p class="hero__description">
+          Join the conversations with people around the world now.
+        </p>
+        <a href="#" class="hero__cta hero__cta--primary"
+          >Get started</a
+        >
+      </div>
+    </section>
+  </body>
+</html>
