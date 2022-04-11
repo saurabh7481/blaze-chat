@@ -67,12 +67,28 @@ export const addUser = async (req, res) => {
                 email: req.body.email
             }
         });
-        console.log(user.email);
         const group = await Group.findByPk(req.body.groupid);
         const added = await group.addUser(user);
         
 
         return res.status(200).json({success: true, message: "User added"});
+    } catch(err){
+        
+    }
+}
+
+export const removeUser = async (req, res) => {
+    try{
+        const user = await User.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+
+        const group = await Group.findByPk(req.body.groupid);
+        await group.removeUser(user);
+
+        return res.status(200).json({success: true, message: "User removed"});
     } catch(err){
         return res.status(500).json({success: false, err: err});
     }
