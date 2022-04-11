@@ -2,8 +2,8 @@ POST http://localhost:3000/api/auth/signup HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Saurabh",
-    "email": "Email",
+    "name": "Saurabh3",
+    "email": "saurabh7482",
     "phnumber": "9868715540",
     "password": "123456"
 }
@@ -14,7 +14,7 @@ POST http://localhost:3000/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "Email",
+    "email": "saurabh7482",
     "password": "123456"
 }
 
@@ -31,3 +31,27 @@ Content-Type: application/json
  
 GET http://localhost:3000/api/chat/get?lastchatid=0 HTTP/1.1
 Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/groups/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "First Group"
+}
+
+###
+
+POST http://localhost:3000/api/groups/invite HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "saurabh7482",
+    "groupid": "1"
+}
+
+### 
+
+GET http://localhost:3000/api/groups/get HTTP/1.1
+Content-Type:  application/json

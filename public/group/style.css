@@ -55,15 +55,11 @@ body {
     border-bottom: 1px solid #000;
 }
 
-.create {
+.invite {
     margin-right: 0.5rem;
 }
 
-.groups {
-    margin-left: 0.5rem;
-}
-
-#create {
+.add {
     width: 280px;
     margin: 0 auto;
     background-color: #fcfcfc;
@@ -72,43 +68,20 @@ body {
     display: none;
 }
 
-#group{
-    width: 280px;
-    margin: 0 auto;
-    background-color: #fcfcfc;
-    padding: 20px 50px 40px;
-    box-shadow: 1px 4px 10px 1px #aaa;
-    max-height: 500px;
-    overflow: scroll;
-    display: none;
-}
-
-.gotogroup {
-    cursor: pointer;
-}
-
-.gotogroup:hover {
-    border-bottom: 1px solid #9f58a3;
-}
-
-#create * {
+.add * {
     box-sizing: border-box;
 }
 
-#create h2 {
+.add h2 {
     text-align: center;
     margin-bottom: 30px;
 }
 
-#group h4{
-    margin-bottom: 30px;
-}
-
-#create input {
+.add input {
     margin-bottom: 15px;
 }
 
-#create input[type=text] {
+.add input[type=email] {
     display: block;
     height: 32px;
     padding: 6px 16px;
@@ -117,12 +90,12 @@ body {
     background-color: #f3f3f3;
 }
 
-#create label {
+.add label {
     color: #777;
     font-size: 0.8em;
 }
 
-#create button[type=button] {
+.add button[type=button] {
     display: block;
     margin: 20px auto 0;
     width: 150px;

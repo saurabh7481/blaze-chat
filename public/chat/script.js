@@ -1,16 +1,91 @@
+
 window.addEventListener("load", () => {
     const chats = JSON.parse(localStorage.getItem("chats"));
     if(chats){
         renderChats();
     }
-    setInterval(() => {
-        getChats()
-    }, 1000);
+    // setInterval(() => {
+    //     getChats()
+    // }, 1000);
     // getChats();
 
     const sendBtn = document.querySelector("#send");
     sendBtn.addEventListener("click", sendMessage);
+
+    const createGroupToggle = document.querySelector(".create");
+    createGroupToggle.addEventListener("click", toggleCreateGroup);
+
+    const createGroupBtn = document.querySelector("#create-btn");
+    createGroupBtn.addEventListener("click", createGroup);
+
+    const getGroupsBtn = document.querySelector(".groups");
+    getGroupsBtn.addEventListener("click", getGroupsToggle);
+
+    
 })
+
+async function createGroup(){
+    const data = {
+        name: document.querySelector("#group-name").value
+    }
+    try{
+        const res = await axios.post("http://localhost:3000/api/groups/create", data);
+        if(res.status === 200){
+            alert(res.data.message);
+        }
+    } catch(err){
+        alert("Something went wrong");
+    }
+}
+
+async function getGroupsToggle(){
+    if(document.querySelector("#group").style.display == "none"){
+        
+        try{
+            const res = await axios.get("http://localhost:3000/api/groups/get");
+            if(res.status === 200){
+                renderGroups(res.data.groups);
+                document.querySelector("#group").style.display = "block"
+            }
+        } catch(err){
+            alert("Something went wrong");
+        }
+    } else {
+        document.querySelector("#group").style.display = "none"
+    }
+}
+
+function goToGroup(e){
+    localStorage.setItem("curr_group", JSON.stringify({
+        id: e.target.id,
+        name: e.target.innerHTML
+    }))
+    location.href = "http://localhost:3000/group";
+}
+
+function renderGroups(groups){
+    const container = document.querySelector("#group");
+    container.innerHTML = "";
+    groups.forEach(group => {
+        const tmp = `
+            <h4 id=${group.id} class="gotogroup">${group.name}</h4>
+        `
+
+        container.innerHTML = container.innerHTML + tmp;
+    });
+    const goToGroupBtn = document.querySelectorAll(".gotogroup");
+    for(let i=0; i<goToGroupBtn.length; i++){
+        goToGroupBtn[i].addEventListener("click",e => goToGroup(e));
+    }
+}
+
+function toggleCreateGroup(){
+    if(document.querySelector("#create").style.display == "none"){
+        document.querySelector("#create").style.display = "block";
+    } else {
+        document.querySelector("#create").style.display = "none";
+    }
+}
 
 async function sendMessage(){
     const data = {

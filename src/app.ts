@@ -12,6 +12,7 @@ const app = express();
 //Routes
 import authRoutes from "./routes/auth.routes";
 import chatRoutes from "./routes/chat.routes";
+import groupRoutes from "./routes/group.routes";
 
 app.use( cors() );
 app.use( cookieParser() );
@@ -20,11 +21,12 @@ app.use( express.static( path.join( __dirname, "..", "public" ) ) );
 
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/groups", groupRoutes);
 
 
 const PORT = process.env.PORT || 3000;
 
-dbConfig.sync({force: true}).then( () => {
+dbConfig.sync().then( () => {
 	app.listen( PORT, () => {
     console.log( `Server is running at ${PORT}` );
   } );
