@@ -21,7 +21,7 @@ async function login(){
         password: formData.get("password")
     }
     try{
-        const res = await axios.post("http://localhost:3000/api/auth/login", data);
+        const res = await axios.post("http://15.206.123.243:3000/api/auth/login", data);
         if(res.status === 200){
             alert("Logged in!");
         }
@@ -46,7 +46,7 @@ async function register(){
          password: formData.get("password")
      }
      try {
-         const res = await axios.post("http://localhost:3000/api/auth/signup", data);
+         const res = await axios.post("http://15.206.123.243:3000/api/auth/signup", data);
          console.log(res);
          if(res.status === 200){
              alert("You are registered");

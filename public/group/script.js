@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
   if (currGroup) {
     document.querySelector('.logo').innerHTML = currGroup.name;
   } else {
-    location.href = 'http://localhost:3000';
+    location.href = 'http://15.206.123.243:3000';
   }
 
   setInterval(() => {
@@ -52,7 +52,7 @@ async function inviteUser() {
   };
   try {
     const res = await axios.post(
-      'http://localhost:3000/api/groups/invite',
+      'http://15.206.123.243:3000/api/groups/invite',
       data,
     );
     if (res.status == 200) {
@@ -71,7 +71,7 @@ async function removeUser() {
     };
     try {
       const res = await axios.post(
-        'http://localhost:3000/api/groups/remove',
+        'http://15.206.123.243:3000/api/groups/remove',
         data,
       );
       if (res.status == 200) {
@@ -91,7 +91,7 @@ async function removeUser() {
     try {
       console.log(data);
       const res = await axios.post(
-        'http://localhost:3000/api/groups/make-admin',
+        'http://15.206.123.243:3000/api/groups/make-admin',
         data,
       );
       if (res.status == 200) {
@@ -110,7 +110,7 @@ async function sendChat(){
     message: document.querySelector("#message").value
   }
   try{
-    const res = await axios.post("http://localhost:3000/api/groups/addchat", data);
+    const res = await axios.post("http://15.206.123.243:3000/api/groups/addchat", data);
     if(res.status == 200){
       document.querySelector("#message").value = "";
     }
@@ -128,7 +128,7 @@ async function getChats() {
   }
   try {
     const res = await axios.get(
-      `http://localhost:3000/api/chat/get?lastchatid=${lastChatId}&groupid=${currGroup.id}`,
+      `http://15.206.123.243:3000/api/chat/get?lastchatid=${lastChatId}&groupid=${currGroup.id}`,
     );
     if (res.status === 200) {
       const chats = res.data.chats;
