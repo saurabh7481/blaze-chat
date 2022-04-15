@@ -16,7 +16,7 @@ interface RequestExtended extends Request{
 }
 
 interface ChatBody {
-    message: String
+    message: string
 }
 
 export const addChat =async (req: RequestExtended, res: Response) => {
@@ -101,7 +101,7 @@ const upoloadToS3 = ( file: string, name: string ) => {
 
     const fileStream = fs.createReadStream(file.path);
 
-	const params: any = {
+	const params: object = {
 		Bucket: process.env.S3_BUCKET,
 		Key: name,
 		Body: fileStream,
@@ -109,7 +109,7 @@ const upoloadToS3 = ( file: string, name: string ) => {
 	};
 
 	return new Promise( ( resolve, reject ) => {
-		s3.upload( params, ( err: object, data: any ) => {
+		s3.upload( params, ( err: object, data: object ) => {
 			if ( err ) {
 				reject( err );
 			}

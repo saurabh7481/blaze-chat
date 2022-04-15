@@ -1,32 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserFactory = exports.User = void 0;
+exports.ChatFactory = exports.Chat = void 0;
 const sequelize_1 = require("sequelize");
-class User extends sequelize_1.Model {
+class Chat extends sequelize_1.Model {
 }
-exports.User = User;
-function UserFactory(sequelize) {
-    return sequelize.define("users", {
+exports.Chat = Chat;
+function ChatFactory(sequelize) {
+    return sequelize.define("chats", {
         id: {
             type: sequelize_1.DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
-        email: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        name: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
-        },
-        password: {
+        message: {
             type: sequelize_1.DataTypes.STRING,
             allowNull: false
         },
-        phnumber: {
-            type: sequelize_1.DataTypes.STRING,
+        group: {
+            type: sequelize_1.DataTypes.INTEGER,
+            defaultValue: 0,
             allowNull: false
         },
         createdAt: {
@@ -41,5 +33,5 @@ function UserFactory(sequelize) {
         },
     });
 }
-exports.UserFactory = UserFactory;
-//# sourceMappingURL=user.model.js.map
+exports.ChatFactory = ChatFactory;
+//# sourceMappingURL=chat.model.js.map

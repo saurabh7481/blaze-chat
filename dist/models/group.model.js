@@ -1,31 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserFactory = exports.User = void 0;
+exports.GroupFactory = exports.Group = void 0;
 const sequelize_1 = require("sequelize");
-class User extends sequelize_1.Model {
+class Group extends sequelize_1.Model {
 }
-exports.User = User;
-function UserFactory(sequelize) {
-    return sequelize.define("users", {
+exports.Group = Group;
+function GroupFactory(sequelize) {
+    return sequelize.define("groups", {
         id: {
             type: sequelize_1.DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
-        email: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
         name: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
-        },
-        password: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false
-        },
-        phnumber: {
             type: sequelize_1.DataTypes.STRING,
             allowNull: false
         },
@@ -41,5 +28,5 @@ function UserFactory(sequelize) {
         },
     });
 }
-exports.UserFactory = UserFactory;
-//# sourceMappingURL=user.model.js.map
+exports.GroupFactory = GroupFactory;
+//# sourceMappingURL=group.model.js.map
