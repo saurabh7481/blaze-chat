@@ -1,4 +1,5 @@
 window.addEventListener("load", () => {
+    localStorage.removeItem("chats");
     const toggle = document.querySelectorAll(".toggle");
     for(let i=0; i<toggle.length; i++){
         const btn = toggle[i];
@@ -63,3 +64,11 @@ function toggleForm() {
     const container = document.querySelector('.container');
     container.classList.toggle('active');
 }
+
+// function onSignIn(googleUser) {
+//     var profile = googleUser.getBasicProfile();
+//     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//     console.log('Name: ' + profile.getName());
+//     console.log('Image URL: ' + profile.getImageUrl());
+//     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+//   }

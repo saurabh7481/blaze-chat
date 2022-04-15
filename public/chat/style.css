@@ -63,7 +63,7 @@ body {
     margin-left: 0.5rem;
 }
 
-#create {
+#create, #file {
     width: 280px;
     margin: 0 auto;
     background-color: #fcfcfc;
@@ -91,11 +91,11 @@ body {
     border-bottom: 1px solid #9f58a3;
 }
 
-#create * {
+#create *, #file * {
     box-sizing: border-box;
 }
 
-#create h2 {
+#create h2, #file h2 {
     text-align: center;
     margin-bottom: 30px;
 }
@@ -104,11 +104,11 @@ body {
     margin-bottom: 30px;
 }
 
-#create input {
+#create input,  #file input {
     margin-bottom: 15px;
 }
 
-#create input[type=text] {
+#create input[type=text], #file input[type=file] {
     display: block;
     height: 32px;
     padding: 6px 16px;
@@ -117,12 +117,12 @@ body {
     background-color: #f3f3f3;
 }
 
-#create label {
+#create label,  #file label {
     color: #777;
     font-size: 0.8em;
 }
 
-#create button[type=button] {
+#create button[type=button], #file button[type=button] {
     display: block;
     margin: 20px auto 0;
     width: 150px;

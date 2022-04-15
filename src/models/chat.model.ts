@@ -3,6 +3,7 @@ import { BuildOptions, DataTypes, Model, Sequelize } from "sequelize";
 export interface ChatAttributes {
     id: number;
     message: string;
+    group: number;
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -22,6 +23,11 @@ export function ChatFactory (sequelize: Sequelize): ChatStatic {
         },
         message: {
             type: DataTypes.STRING,
+            allowNull: false
+        },
+        group: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
             allowNull: false
         },
         createdAt: {

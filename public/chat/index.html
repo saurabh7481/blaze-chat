@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-signin-client_id" content="255919868405-ef4apt7dd5c0obnvv5mudafsph5k9tta.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <title>Chat Window - Blaze</title>
@@ -21,11 +23,21 @@
       </div>
 
       <div id="create">
-        <h2>Register Today</h2>
+        <h2>Create Group</h2>
         <div>
           <form>
             <input type="text" name="name" placeholder="Name" id="group-name"></input>
             <button type="button" id="create-btn">Create</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="file">
+        <h2>Upload file</h2>
+        <div>
+          <form>
+            <input type="file" name="uploadFile" id="file-upload"></input>
+            <button type="button" id="upload-btn">Upload</button>
           </form>
         </div>
       </div>
@@ -38,6 +50,7 @@
       <div class="input-area">
         <input type="text" name="message" id="message" />
         <button id="send"><i class="fas fa-paper-plane"></i></button>
+        <button id="send" class="upload-prompt"><i class="fas fa-paperclip"></i></button>
       </div>
     </div>
   </body>

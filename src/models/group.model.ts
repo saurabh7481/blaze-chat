@@ -3,7 +3,6 @@ import { BuildOptions, DataTypes, Model, Sequelize } from "sequelize";
 export interface GroupAttributes {
     id: number;
     name: string;
-    adminId: number
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -20,10 +19,6 @@ export function GroupFactory (sequelize: Sequelize): GroupStatic {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-        },
-        adminId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
         },
         name: {
             type: DataTypes.STRING,

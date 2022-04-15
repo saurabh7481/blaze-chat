@@ -2,6 +2,7 @@ import { BuildOptions, DataTypes, Model, Sequelize } from "sequelize";
 
 export interface GroupUserAttributes {
     id: number;
+    isAdmin: boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -18,6 +19,10 @@ export function GroupUserFactory (sequelize: Sequelize): GroupUserStatic {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
+        },
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         },
         createdAt: {
             type: DataTypes.DATE,

@@ -49,17 +49,15 @@ body {
     flex-direction: row;
     font-size: 1.1rem;
     cursor: pointer;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .header .subtext:hover {
     border-bottom: 1px solid #000;
 }
 
-.invite {
-    margin-right: 0.5rem;
-}
-
-.add, #remove {
+.add, #remove, #add-admin {
     width: 280px;
     margin: 0 auto;
     background-color: #fcfcfc;
@@ -68,20 +66,20 @@ body {
     display: none;
 }
 
-.add *, #remove * {
+.add *, #remove *, #add-admin * {
     box-sizing: border-box;
 }
 
-.add h2, #remove h2 {
+.add h2, #remove h2, #add-admin h2 {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.add input, #remove input {
+.add input, #remove input, #add-admin input {
     margin-bottom: 15px;
 }
 
-.add input[type=email], #remove input[type=email] {
+.add input[type=email], #remove input[type=email], #add-admin input[type=email]{
     display: block;
     height: 32px;
     padding: 6px 16px;
@@ -90,12 +88,12 @@ body {
     background-color: #f3f3f3;
 }
 
-.add label, #remove label {
+.add label, #remove label, #add-admin label {
     color: #777;
     font-size: 0.8em;
 }
 
-.add button[type=button], #remove button[type=button] {
+.add button[type=button], #remove button[type=button], #add-admin button[type=button] {
     display: block;
     margin: 20px auto 0;
     width: 150px;
